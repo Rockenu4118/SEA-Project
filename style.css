@@ -7,15 +7,15 @@ body {
     padding: 0px;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 8px;
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #09090b;
 }
   
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #27272a;
     border-radius: 16px;
 }
@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-header {
-    font-size: 1rem;
+    font-size: 12px;
     font-family: sans-serif;
     padding-left: 1rem;
     border-bottom: 1px solid #27272a;
@@ -37,22 +37,24 @@ body::-webkit-scrollbar-thumb {
 
 input {
     background-color: #27272a;
-    border: #27272a;
+    border: 1px solid #27272a;
     border-radius: 8px;
     color: #ffffff;
     font-size: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     margin: 1rem;
 }
 
 input:focus {
     outline: none;
+    border: 1px solid #52525b;
 }
 
 .table {
+    min-width: 768px;
     width: 100%;
     border-collapse: collapse;
 
@@ -65,10 +67,37 @@ input:focus {
     }
 }
 
+.table-container {
+    overflow-x: scroll;
+}
+
 th, td {
     text-align: left;
     padding: 1rem;
     border-bottom: 1px solid #27272a;
+}
+
+.sortButton {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #09090b;
+    border: none;
+    padding: 0px;
+}
+
+.sortButton:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.units {
+    font-size: 14px;
+    color: #737373;
+}
+
+tr:hover {
+    background-color: #18181b;
+    -webkit-transition: 0.1s ease-in-out;
 }
 
 .playerName {
@@ -86,11 +115,23 @@ th, td {
     font-weight: 500;
 }
 
+.label {
+    font-size: 14px;
+    color: #737373;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.value {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
 .noResult {
     height: 32rem;
     width: 100%;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 14px;
     text-align: center; 
     margin-top: 12rem;   
 }
