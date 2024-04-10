@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MLB Position Players</title>
+    <meta name="description" content="MLB Position Players">
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <header class="main-header">
+            <h1>MLB Position Players</h1>
+        </header>
+
+        <div>
+            <input id="searchBar"
+                   placeholder="Search..."
+                   oninput="search()"
+            />
+        </div>
+
+        <table id="table" class="table">
+            <thead class="thead">
+                <tr>
+                    <th>Player</th>
+                    <th>Batted Balls</th>
+                    <th>Avg. Angle</th>
+                    <th>Exit Velo</th>
+                    <th>Distance</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+
+        <div id="noResult" class="noResult" style="display: none;">
+            <h2>No Result.</h2>
+        </div>
+    </div>
+</body>
+
+</html>
