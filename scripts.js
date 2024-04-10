@@ -23,11 +23,6 @@
  * 
  */
 
-// Helpful sites...
-// w3schools.com
-// developer.mozilla.org
-// stackoverflow.com
-
 
 const data = [
     {
@@ -561,12 +556,16 @@ function populateTable(players)
             // Cell 4 config
             avgExitVelo = document.createElement("div");
             maxExitVelo = document.createElement("div");
+            avgExitVelo.setAttribute("class", "label")
+            maxExitVelo.setAttribute("class", "label")
 
             avgExitVelo.innerText = "Avg: ";
             maxExitVelo.innerText = "Max: ";
 
             avgExitVeloVal = document.createElement("span");
             maxExitVeloVal = document.createElement("span");
+            avgExitVeloVal.setAttribute("class", "value")
+            maxExitVeloVal.setAttribute("class", "value")
 
             avgExitVeloVal.innerText = players[i]["avg_hit_speed"];
             maxExitVeloVal.innerText = players[i]["max_hit_speed"];
@@ -574,18 +573,22 @@ function populateTable(players)
             avgExitVelo.appendChild(avgExitVeloVal);
             maxExitVelo.appendChild(maxExitVeloVal);
 
-            c4.appendChild(avgExitVelo);
             c4.appendChild(maxExitVelo);
+            c4.appendChild(avgExitVelo);
             
             // Cell 5 config
             avgDistance = document.createElement("div");
             maxDistance = document.createElement("div");
+            avgDistance.setAttribute("class", "label")
+            maxDistance.setAttribute("class", "label")
 
             avgDistance.innerText = "Avg: ";
             maxDistance.innerText = "Max: ";
 
             avgDistanceVal = document.createElement("span");
             maxDistanceVal = document.createElement("span");
+            avgDistanceVal.setAttribute("class", "value")
+            maxDistanceVal.setAttribute("class", "value")
 
             avgDistanceVal.innerText = players[i]["avg_distance"];
             maxDistanceVal.innerText = players[i]["max_distance"];
@@ -593,8 +596,8 @@ function populateTable(players)
             avgDistance.appendChild(avgDistanceVal);
             maxDistance.appendChild(maxDistanceVal);
 
-            c5.appendChild(avgDistance);
             c5.appendChild(maxDistance);
+            c5.appendChild(avgDistance);
         }
     }
     else
@@ -607,19 +610,32 @@ function search()
 {
     searchBar = document.getElementById("searchBar");
 
+    const searchTerm = searchBar.value.toLowerCase();
+
     const filteredData = data.filter(function (player) {
-        return player["last_name, first_name"].includes(searchBar.value) || player["team"].includes(searchBar.value);
+        return player["last_name, first_name"].toLowerCase().includes(searchTerm) || player["team"].toLowerCase().includes(searchTerm);
     })
 
     populateTable(filteredData);
 }
 
-
-
-function onPageLoad()
+function sort(field, ascending = false)
 {
+    if (ascending)
+    {
+        data.sort((a, b) => (a[field] > b[field]) ? 1 : ((a[field] < b[field]) ? -1 : 0));
+    }   
+    else
+    {
+        data.sort((a, b) => (a[field] < b[field]) ? 1 : ((a[field] > b[field]) ? -1 : 0));
+    }
+    
     populateTable(data);
 }
 
-// This calls the addCards() function when the page is first loaded
+function onPageLoad()
+{
+    sort("last_name, first_name", true);
+}
+
 document.addEventListener("DOMContentLoaded", onPageLoad);
