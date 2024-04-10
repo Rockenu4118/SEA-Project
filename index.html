@@ -4,6 +4,7 @@
 <head>
     <title>MLB Position Players</title>
     <meta name="description" content="MLB Position Players">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
 </head>
@@ -16,27 +17,29 @@
 
         <div>
             <input id="searchBar"
-                   placeholder="Search..."
+                   placeholder="Search players or teams"
                    oninput="search()"
             />
         </div>
 
-        <table id="table" class="table">
-            <thead class="thead">
-                <tr>
-                    <th>Player</th>
-                    <th>Batted Balls</th>
-                    <th>Avg. Angle</th>
-                    <th>Exit Velo</th>
-                    <th>Distance</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table id="table" class="table">
+                <thead class="thead">
+                    <tr>
+                        <th>Player</th>
+                        <th><button class="sortButton" value="attempts" onclick="sort(this.value)">Batted Balls</button></th>
+                        <th><button class="sortButton" value="avg_hit_angle" onclick="sort(this.value)">Avg. Angle <span class="units">(°)</span></button></th>
+                        <th><button class="sortButton" value="max_hit_speed" onclick="sort(this.value)">Exit Velo <span class="units">(mph)</span></button></th>
+                        <th><button class="sortButton" value="max_distance" onclick="sort(this.value)">Distance <span class="units">(ft.)</span></button></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
 
         <div id="noResult" class="noResult" style="display: none;">
-            <h2>No Result.</h2>
+            <h2>No Results.</h2>
         </div>
     </div>
 </body>
